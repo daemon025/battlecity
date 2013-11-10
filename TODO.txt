@@ -1,0 +1,14 @@
+TODO:
+ - Make map serializer
+ - Load map from file and desirialize
+ - Spawn user tank and implement WSAD controlls
+ - Implement tank collision with Brick, Water and Steel
+ - Implement tank collision with Water
+ - Implement tank collision with Steel
+ - Implement collision with Forest (draw it later)
+ - Implement bullet collision with Brick
+ - Implement bullet collision with Water
+ - Spawn enemy tanks
+ - Implement bullet collision between tanks
+ - Implement between bullets
+ 
