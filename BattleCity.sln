@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BattleCity", "BattleCity\BattleCity\BattleCity.csproj", "{91C4E21E-2118-414E-B8F7-DE972F896143}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "BattleCityContent", "BattleCity\BattleCityContent\BattleCityContent.contentproj", "{C99B644D-9BE7-4B66-B98B-9E5BF84CDEAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91C4E21E-2118-414E-B8F7-DE972F896143}.Debug|x86.ActiveCfg = Debug|x86
+		{91C4E21E-2118-414E-B8F7-DE972F896143}.Debug|x86.Build.0 = Debug|x86
+		{91C4E21E-2118-414E-B8F7-DE972F896143}.Release|x86.ActiveCfg = Release|x86
+		{91C4E21E-2118-414E-B8F7-DE972F896143}.Release|x86.Build.0 = Release|x86
+		{C99B644D-9BE7-4B66-B98B-9E5BF84CDEAA}.Debug|x86.ActiveCfg = Debug|x86
+		{C99B644D-9BE7-4B66-B98B-9E5BF84CDEAA}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
