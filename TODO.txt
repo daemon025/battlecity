@@ -1,6 +1,10 @@
 TODO:
  - Make map serializer
  - Load map from file and desirialize
+ - Add bullet texture (Star 3)
+ - Add texture user tank form2
+ - Add texture user tank form3
+ - Add enemy tank texture (missing last one)
  - Spawn user tank and implement WSAD controlls
  - Implement tank collision with Brick, Water and Steel
  - Implement tank collision with Water
@@ -11,4 +15,5 @@ TODO:
  - Spawn enemy tanks
  - Implement bullet collision between tanks
  - Implement between bullets
+ - Add all power-up textures (0/6)
  
