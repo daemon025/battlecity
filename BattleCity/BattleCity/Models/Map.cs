@@ -14,7 +14,7 @@ namespace BattleCity.Models
         #region Map attributes
         Rectangle drawRectangle;
         Texture2D background;
-        IList<MapObstacle> mapObstacles;
+        IList<BaseObstacle> mapObstacles;
         #endregion
 
         public Map(ContentManager contentManager, Rectangle drawRectangle)
@@ -42,8 +42,24 @@ namespace BattleCity.Models
         private void LoadLevel(ContentManager contentManager, int level)
         {
             //TODO: implement it
-            Random rand = new Random();
-            mapObstacles = new List<MapObstacle>();
+            ObstacleType[,] obstacles = {
+                                            { ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Steel, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Steel, ObstacleType.Empty,ObstacleType.Empty,ObstacleType.Empty,ObstacleType.Empty,ObstacleType.Empty },
+                                            { ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Steel, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Brick, ObstacleType.Brick, ObstacleType.Empty,ObstacleType.Brick,ObstacleType.Empty,ObstacleType.Brick,ObstacleType.Empty },
+                                            { ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Water, ObstacleType.Water, ObstacleType.Water, ObstacleType.Empty,ObstacleType.Brick,ObstacleType.Steel,ObstacleType.Brick,ObstacleType.Empty },
+                                            { ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Empty,ObstacleType.Steel,ObstacleType.Empty,ObstacleType.Empty,ObstacleType.Empty },
+                                            { ObstacleType.Trees, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Steel, ObstacleType.Empty, ObstacleType.Empty,ObstacleType.Brick,ObstacleType.Trees,ObstacleType.Brick,ObstacleType.Steel },
+                                            { ObstacleType.Trees, ObstacleType.Trees, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Steel,ObstacleType.Empty,ObstacleType.Trees,ObstacleType.Empty,ObstacleType.Empty },
+                                            { ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Brick, ObstacleType.Brick, ObstacleType.Trees, ObstacleType.Trees, ObstacleType.Trees, ObstacleType.Steel, ObstacleType.Empty,ObstacleType.Empty,ObstacleType.Trees,ObstacleType.Brick,ObstacleType.Empty },
+                                            { ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Steel, ObstacleType.Trees, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Empty,ObstacleType.Brick,ObstacleType.Empty,ObstacleType.Brick,ObstacleType.Empty },
+                                            { ObstacleType.Steel, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Steel, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Empty,ObstacleType.Empty,ObstacleType.Empty,ObstacleType.Brick,ObstacleType.Empty },
+                                            { ObstacleType.Ice, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Brick, ObstacleType.Brick, ObstacleType.Empty,ObstacleType.Brick,ObstacleType.Steel,ObstacleType.Brick,ObstacleType.Empty },
+                                            { ObstacleType.Ice, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Brick, ObstacleType.Brick, ObstacleType.Empty,ObstacleType.Empty,ObstacleType.Empty,ObstacleType.Empty,ObstacleType.Empty },
+                                            { ObstacleType.Ice, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Brick, ObstacleType.Brick, ObstacleType.Empty,ObstacleType.Brick,ObstacleType.Empty,ObstacleType.Brick,ObstacleType.Empty },
+                                            { ObstacleType.Ice, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Empty, ObstacleType.Brick, ObstacleType.Eagle, ObstacleType.Brick, ObstacleType.Empty,ObstacleType.Brick,ObstacleType.Brick,ObstacleType.Brick,ObstacleType.Empty }
+                                        };
+
+
+            mapObstacles = new List<BaseObstacle>();
 
             int x = drawRectangle.X;
             int y = drawRectangle.Y;
@@ -52,17 +68,16 @@ namespace BattleCity.Models
             {
                 for (int j = 0; j < 13; j++)
                 {
-                    MapObject obj = (MapObject)rand.Next(6) + 1;
+                    if(obstacles[i,j] != ObstacleType.Empty)
+                        mapObstacles.Add(new BaseObstacle(contentManager,
+                            new Rectangle(x, y, 32,32),
+                            obstacles[i, j]));
 
-                    mapObstacles.Add(new MapObstacle(contentManager,
-                        new Rectangle(x, y, 32,32),
-                        obj));
-
-                    y += 32;
+                    x += 32;
                 }
 
-                x += 32;
-                y = drawRectangle.Y;
+                y += 32;
+                x = drawRectangle.X;
             }
 
         }

@@ -16,4 +16,8 @@ TODO:
  - Implement bullet collision between tanks
  - Implement between bullets
  - Add all power-up textures (0/6)
+ - Add red blinking textures to enemy tanks (0/4)
+ - Add game over state and game play state
+ - Add lifes for player
+ - Add spawn effects
  
