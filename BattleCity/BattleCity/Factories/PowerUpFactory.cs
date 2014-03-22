@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace BattleCity.Factories
+﻿namespace BattleCity.Factories
 {
-    class PowerUpFactory
+    public class PowerUpFactory
     {
+        
     }
 }

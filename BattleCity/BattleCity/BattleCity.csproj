@@ -118,7 +118,6 @@
     <Compile Include="Factories\PowerUpFactory.cs" />
     <Compile Include="Models\Tanks\BaseTank.cs" />
     <Compile Include="Models\Bullet.cs" />
-    <Compile Include="Models\Tanks\EnemyTank.cs" />
     <Compile Include="Models\Map.cs" />
     <Compile Include="Models\Obstacles\BaseObstacle.cs" />
     <Compile Include="Models\UserTank.cs" />

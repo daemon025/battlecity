@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using BattleCity.Enums;
 using Microsoft.Xna.Framework.Content;
-using BattleCity.Enums;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace BattleCity.Models
+namespace BattleCity.Models.Tanks
 {
     abstract class BaseTank
     {
@@ -20,12 +16,13 @@ namespace BattleCity.Models
         #endregion
 
         #region Private fields
-        Texture2D tankTexture;
-        MoveDirection moveDirection;
-        Bullet[] bullet = new Bullet[2];
+
+        Texture2D _tankTexture;
+        MoveDirection _moveDirection;
+        Bullet[] _bullet = new Bullet[2];
         #endregion
 
-        public BaseTank(ContentManager contentManager, TankType tankType)
+        protected BaseTank(ContentManager contentManager, TankType tankType)
         {   
             InitDirection(tankType);
 
@@ -35,15 +32,15 @@ namespace BattleCity.Models
         #region Private Area
         private void LoadContext(ContentManager contentManager, TankType tankType)
         {
-            tankTexture = contentManager.Load<Texture2D>("Textures\\" + tankType.ToString());
+            _tankTexture = contentManager.Load<Texture2D>("Textures\\" + tankType.ToString());
         }
 
         private void InitDirection(TankType tankType)
         {
             if (tankType == TankType.FirstUserTank || tankType == TankType.SecondUserTank)
-                moveDirection = MoveDirection.Up;
+                _moveDirection = MoveDirection.Up;
             else
-                moveDirection = MoveDirection.Down;
+                _moveDirection = MoveDirection.Down;
         }
         #endregion
 

@@ -1,36 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.Xna.Framework.Graphics;
+﻿using BattleCity.Enums;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
-using BattleCity.Enums;
+using Microsoft.Xna.Framework.Graphics;
 
-namespace BattleCity.Models
+namespace BattleCity.Models.Obstacles
 {
     public class BaseObstacle
     {
-        private Texture2D texture;
-        private Rectangle drawRectangle;
-        private ObstacleType objectIdentity;
+        private Texture2D _texture;
+        private readonly Rectangle _drawRectangle;
+        private readonly ObstacleType _objectIdentity;
 
         public BaseObstacle(ContentManager contentManager, Rectangle drawRectangle, ObstacleType mapObject)
         {
-            this.drawRectangle = drawRectangle;
-            this.objectIdentity = mapObject;
+            _drawRectangle = drawRectangle;
+            _objectIdentity = mapObject;
 
             LoadContent(contentManager);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, drawRectangle, Color.AliceBlue);
+            spriteBatch.Draw(_texture, _drawRectangle, Color.AliceBlue);
         }
 
         private void LoadContent(ContentManager contentManager)
         {
-            texture = contentManager.Load<Texture2D>("Textures\\"+objectIdentity.ToString());
+            _texture = contentManager.Load<Texture2D>("Textures\\"+_objectIdentity.ToString());
         }
     }
 }

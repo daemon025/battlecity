@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ComponentModel;
-
-namespace BattleCity.Enums
+﻿namespace BattleCity.Enums
 {
     /* Powerups will disappear when another flashing tank starts to appear.
        The 4th, 11th and 18th tanks in the level are flashing ones. */
